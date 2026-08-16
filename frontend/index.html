@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Blood Donor Registry</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; background: #f7f7f9; }
+  h1 { color: #b71c1c; }
+  form { background: white; padding: 16px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  input, select { display: block; width: 100%; margin-bottom: 10px; padding: 8px; box-sizing: border-box; }
+  button { background: #b71c1c; color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; }
+  button.secondary { background: #666; margin-left: 8px; }
+  .donor-card { background: white; padding: 12px 16px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+  .donor-card .group { font-weight: bold; color: #b71c1c; }
+  #filterBar { margin-bottom: 16px; }
+  #status { color: #b71c1c; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+  <h1>🩸 Blood Donor Registry</h1>
+  <div id="status"></div>
+
+  <form id="donorForm">
+    <input type="hidden" id="donorId" />
+    <input type="text" id="fullName" placeholder="Full name" required />
+    <select id="bloodGroup" required>
+      <option value="">Select blood group</option>
+      <option>A+</option><option>A-</option>
+      <option>B+</option><option>B-</option>
+      <option>AB+</option><option>AB-</option>
+      <option>O+</option><option>O-</option>
+    </select>
+    <input type="text" id="phone" placeholder="Phone (e.g. +977-9800000000)" required />
+    <input type="email" id="email" placeholder="Email (optional)" />
+    <input type="text" id="notes" placeholder="Notes (optional)" />
+    <button type="submit" id="submitBtn">Add Donor</button>
+    <button type="button" class="secondary" id="cancelEditBtn" style="display:none;">Cancel Edit</button>
+  </form>
+
+  <div id="filterBar">
+    <select id="filterBloodGroup">
+      <option value="">All blood groups</option>
+      <option>A+</option><option>A-</option>
+      <option>B+</option><option>B-</option>
+      <option>AB+</option><option>AB-</option>
+      <option>O+</option><option>O-</option>
+    </select>
+  </div>
+
+  <div id="donorList"></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
